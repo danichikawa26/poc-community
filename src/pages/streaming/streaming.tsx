@@ -1,13 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import { Container } from './streaming.style';
+import { Container } from './streaming.style'
 
 const Streaming: React.FC = () => {
-  return (
-    <Container>
-      
-    </Container>
-  )
+  return <Container />
 }
 
-export default Streaming;
+export default Streaming

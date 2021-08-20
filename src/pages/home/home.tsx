@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import { Button, Container } from './home.style';
+import { Button, Container } from './home.style'
 
 const Home: React.FC = () => {
   return (
@@ -10,4 +10,4 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home;
+export default Home

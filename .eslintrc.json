@@ -19,7 +19,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [
@@ -46,6 +46,8 @@
         "tsx": "never"
       }
     ],
+    "import/prefer-default-export": "off",
+    "react/self-closing-comp": "warn",
     "no-param-reassign": ["error", { "props": false }],
     "no-console": "off"
   },
