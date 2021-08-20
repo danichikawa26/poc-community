@@ -1,8 +1,8 @@
-import React from 'react';
-import Dashboard from './base.components/dashboard.js';
+import React from 'react'
+import Routes from './routes'
 
-function App(): React.ComponentElement<any, any> {
-  return <Dashboard />;
+const App: React.FC = () => {
+  return <Routes />
 }
 
-export default App;
+export default App
