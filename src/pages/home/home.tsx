@@ -1,13 +1,8 @@
 import React from 'react'
-
-import { Button, Container } from './home.style'
+import Dashboard from "../../base.components/dashboard";
 
 const Home: React.FC = () => {
-  return (
-    <Container>
-      <Button>Nova Live</Button>
-    </Container>
-  )
+  return <Dashboard />
 }
 
 export default Home
