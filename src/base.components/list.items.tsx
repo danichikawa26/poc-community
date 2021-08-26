@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -13,6 +15,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
+import { createBrowserHistory } from "history";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -63,7 +66,7 @@ console.log(open);
         </ListItem>
       </List>
     </Collapse>
-    <ListItem button>
+    <ListItem button onClick={() => createBrowserHistory().push("/streaming")}>
       <ListItemIcon>
         <VideocamIcon/>
       </ListItemIcon>

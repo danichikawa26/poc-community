@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import clsx from 'clsx';
 import {
@@ -19,9 +20,16 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import ImageIcon from '@material-ui/icons/Image';
+import Button from '@material-ui/core/Button';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import DataTable from "./data.table";
 import MainListItems from './list.items';
-import Deposits from './deposits';
-import Orders from './orders';
 import lightTheme from './themes/light.theme';
 
 const drawerWidth = 240;
@@ -95,14 +103,26 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(4),
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: '24px',
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     overflow: 'auto',
     flexDirection: 'column',
   },
   fixedHeight: {
     height: 240,
   },
+  media: {
+    height: 140,
+  },
+  card: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardContent: {
+    display: 'flex'
+  }
 }));
 
 export default function Dashboard() {
@@ -110,7 +130,7 @@ export default function Dashboard() {
   const [open, setOpen] = React.useState(false);
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
+  const card = clsx(classes.root, classes.card);
   const theme = createTheme({
     palette: {
       lightTheme,
@@ -136,9 +156,15 @@ export default function Dashboard() {
               Dashboard
             </Typography>
             <IconButton color="inherit">
+                <HelpOutlineIcon />
+            </IconButton>
+            <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
               </Badge>
+            </IconButton>
+            <IconButton color="inherit">
+                <AccountCircleIcon />
             </IconButton>
           </Toolbar>
         </AppBar>
@@ -159,21 +185,62 @@ export default function Dashboard() {
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper className={fixedHeightPaper}>{/*<Chart />*/}</Paper>
+              <Grid container item spacing={3} xs={12} md={8}>
+                <Grid item xs={12} md={6}>
+                  <Paper className={classes.paper} ><Typography variant="h3">350</Typography><Typography variant="body1">Seguidores</Typography></Paper>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Paper className={classes.paper}>
+                    <Typography variant="h3">58</Typography><Typography variant="body1">Novos comentários</Typography>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="h6" component="subtitle2">Próximo evento</Typography>
+                  <Paper className={fixedHeightPaper}></Paper>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="h6" component="subtitle2">Publicação destacada do mês</Typography>
+                    <Card className={card}>
+                      <CardActionArea className={classes.cardContent}>
+                        <ImageIcon />
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="h2">
+                            Lizard
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                            across all continents except Antarctica
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                      <CardActions>
+                        <Button size="small" color="primary">
+                          Share
+                        </Button>
+                      </CardActions>
+                    </Card>
+                </Grid>
+                <Grid item xs={12} md={12}>
+                  <DataTable />
+                </Grid>
               </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper className={fixedHeightPaper}>
-                  <Deposits />
-                </Paper>
-              </Grid>
-              {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper className={classes.paper}>
-                  <Orders />
-                </Paper>
+              <Grid container item spacing={3} xs={12} md={4}>
+                <Grid item xs={12} md={12}>
+                  <Paper className={classes.paper}>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={12}>
+                  <Paper className={classes.paper}>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Paper className={classes.paper}>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Paper className={classes.paper}>
+                  </Paper>
+                </Grid>
               </Grid>
             </Grid>
             <Box pt={4}></Box>
